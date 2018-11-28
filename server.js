@@ -46,10 +46,12 @@ app.use(cors());
 
 
 app.get('/', (req, res)=>{
-	db.select('users.email',{User_Table_ID:'users.id'},'users.name','users.entries','users.joined','login.hash',{Login_Table_ID:'login.id'}).from('users').leftJoin('login', 'users.email', 'login.email')
-	.then(users => {
-		res.json(users);
-	})
+	// db.select('users.email',{User_Table_ID:'users.id'},'users.name','users.entries','users.joined','login.hash',{Login_Table_ID:'login.id'}).from('users').leftJoin('login', 'users.email', 'login.email')
+	// .then(users => {
+	// 	res.json(users);
+	// })
+
+  res.json("App is Working!");
 })
 
 app.post('/signin', (req, res) => {signin.handleSignin (req, res, db, bcrypt)})
