@@ -10,12 +10,8 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    // host : '127.0.0.1',        this is used for connection to DB on localhost
-    // user : 'postgres',
-    // password : 'test',
-    // database : 'smart-brain'
     connectionString: process.env.DATABASE_URL,
-    ssl: true
+    ssl: true,
   }
 });
 
@@ -24,6 +20,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+//now using an actual postgres database
 // const database = {
 // 	users: [
 // 		{
